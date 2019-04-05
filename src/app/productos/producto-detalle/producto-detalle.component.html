@@ -1,0 +1,15 @@
+<div class="media col-1 mt-2 border border-primary align-items-center ">
+  <a href="#">
+    <img class="rounded mx-auto d-block" src="https://picsum.photos/50/50?image={{producto.id}}" alt="">
+  </a>
+
+  <div class="media-body ">
+    <h4>{{producto.nombre}}</h4>
+    <p>Marca: {{producto.marca}} </p>
+    <p>Costo: $ {{producto.precio}}</p>
+    <p>Categoría: {{producto.categoria}}</p>
+    <p>Cantidad en Existencia: {{producto.existencia}}</p>
+  </div>
+
+</div>
+<router-outlet></router-outlet>

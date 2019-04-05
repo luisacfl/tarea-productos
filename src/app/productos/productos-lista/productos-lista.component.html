@@ -1,0 +1,48 @@
+<div style="text-align:left" class="py-3 px-3">
+  <h4 class="display-4" *ngIf="modoCompras === true">
+    Carrito de Compras
+  </h4>
+</div>
+
+<div style="text-align:left" class="py-3 px-3">
+  <h4 class="display-4" *ngIf="modoCompras === false">
+    Lista de Productos
+  </h4>
+</div>
+
+<div class="py-3 px-3">
+  <button *ngIf="modoCompras === false" (click)="agregarCompra()" type="button" id="btAgregar"
+    class="btn btn-success btn-lg mt-2">
+    Añadir al Carrito de compras
+  </button>
+</div>
+
+<span *ngIf="modoCompras === true">
+  <app-producto-item *ngFor="let i of items" [producto]="i" (productoPorBorrar)="borrarProductoCompras($event)"
+    (detallePorMostrar)="mostrarDetalle($event)">
+  </app-producto-item>
+</span>
+
+<span *ngIf="modoCompras === false">
+  <app-producto-item *ngFor="let i of items" [producto]="i"
+    (detallePorMostrar)="mostrarDetalle($event)" (productoPorAlterar)="alterarListaCompras($event)">
+  </app-producto-item>
+</span>
+
+<div class="py-3 px-3">
+  <button *ngIf="modoCompras === false" (click)="agregarCompra()" type="button" id="btAgregar"
+    class="btn btn-success btn-lg mt-2">
+    Añadir al Carrito de compras
+  </button>
+</div>
+
+<div class="py-3 px-3" style="text-align:right">
+  <p class="lead" *ngIf="modoCompras === false">
+    Artículos seleccionados: {{totalArticulos}}
+    <!--TODO:añadir el número binded-->
+  </p>
+  <p class="lead" *ngIf="modoCompras === true">
+    Total: ${{totalGeneral}}
+    <!--TODO:añadir el número binded-->
+  </p>
+</div>
